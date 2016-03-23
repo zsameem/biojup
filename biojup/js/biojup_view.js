@@ -1,10 +1,13 @@
+//This file is copied to jupyter_core.jupyter_data_dir and changing it here does
+//not reflect the changes there.
+
 define(["nbextensions/widgets/widgets/js/widget", "nbextensions/widgets/widgets/js/manager", "jquery"],
   function(widget, manager, $){
     window.initialize = function(){};
 
     //the js library is loaded here. If the methods of the widget are invoked
     //in the browser without this being fully loaded, errors may occur
-    $.getScript("http://cdn.biojs.net/msa/0.4/msa.min.gz.js", function(){
+    $.getScript("https://cdn.biojs.net/msa/0.4/msa.min.gz.js", function(){
       console.log("external script loaded");
     });
 
@@ -16,13 +19,7 @@ define(["nbextensions/widgets/widgets/js/widget", "nbextensions/widgets/widgets/
         //this.$el.append(this.$seqOpdiv);
         //this.$el.text("Hello from the other side");
 
-        // var msa = require("msa");
-        // var m = new msa({
-        //     //directly bind the msa object with the cell div
-        //     //needs to be changed
-        //     el: this.$el,
-        //     seqs: msa.utils.seqgen.genConservedSequences(10,30, "ACGT-"), // an array of seq files
-        // });
+
         var msa = require("msa");
         var clustal = require("biojs-io-clustal");
         var m = new msa({

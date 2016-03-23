@@ -10,12 +10,14 @@ def init():
     #
     # Potential alternatives would be to re-factor the
     # init statement into a line magic.
+
     global __has_initialized__
     if not __has_initialized__:
         display(Javascript("""
                 require(['base/js/namespace'],
             function(IPython) {
                 IPython.utils.load_extensions('biojup_js/biojup_view');
+
             });
             """))
         __has_initialized__ = True

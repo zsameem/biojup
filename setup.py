@@ -13,21 +13,17 @@ Biojs for jupyter notebook
 classifiers = [
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
-    'Intended Audience :: Financial and Insurance Industry',
-    'Intended Audience :: Telecommunications Industry',
-    'License :: OSI Approved :: BSD License',
+    'License :: OSI Approved :: MIT License',
     'Framework :: IPython',
     'Programming Language :: Python',
     'Topic :: Software Development',
     'Topic :: Scientific/Engineering',
     'Operating System :: POSIX',
     'Operating System :: Unix',
-    'Operating System :: MacOS',
-    'Operating System :: Microsoft :: Windows',
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: JavaScript',
-    'Topic :: Scientific/Engineering :: GIS',
+    'Topic :: Scientific/Engineering :: Biology',
     'Topic :: Scientific/Engineering :: Visualization',
     ]
 
