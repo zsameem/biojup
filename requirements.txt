@@ -1,5 +1,7 @@
 backports-abc==0.4
 backports.ssl-match-hostname==3.4.0.2
+-e git+https://www.github.com/zsameem/biojup@731ba352d05f37ab50b3b006629854f7bcccdc3e#egg=biojup
+biopython==1.66
 decorator==4.0.9
 ipykernel==4.3.1
 ipython==4.1.2
@@ -16,6 +18,7 @@ mistune==0.7.2
 nbconvert==4.1.0
 nbformat==4.0.1
 notebook==4.1.0
+numpy==1.11.0
 path.py==0.0.0
 pexpect==3.3
 pickleshare==0.5
