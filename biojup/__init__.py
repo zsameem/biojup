@@ -1,5 +1,6 @@
 from biojup.loader import init
-from biojup.simpleview import simpleview
+from biojup.custom_widgets import MsaParseUrl
+from biojup.custom_widgets import MsaParseClustal
 
 from IPython.display import display
 

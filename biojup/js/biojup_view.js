@@ -1,5 +1,5 @@
 //This file is copied to jupyter_core.jupyter_data_dir and changing it here does
-//not reflect the changes there.
+//not reflect the changes there. so a symlink is created for dev purposes.
 
 define(["nbextensions/widgets/widgets/js/widget", "nbextensions/widgets/widgets/js/manager", "jquery"],
   function(widget, manager, $){
@@ -10,30 +10,40 @@ define(["nbextensions/widgets/widgets/js/widget", "nbextensions/widgets/widgets/
     $.getScript("https://cdn.biojs.net/msa/0.4/msa.min.gz.js", function(){
       console.log("external script loaded");
     });
-
-    var SimpleView = widget.DOMWidgetView.extend({
+    /*
+      View for parsing a url
+    */
+    var MsaParseUrlView = widget.DOMWidgetView.extend({
       render: function(){
-        //does not work for some reason
-        //this.$seqOpdiv = $('<div />',{'class':"seqOp"}).text("Hello");
-        //console.log(this.$seqOpdiv)
-        //this.$el.append(this.$seqOpdiv);
-        //this.$el.text("Hello from the other side");
-
-
-        var msa = require("msa");
         var clustal = require("biojs-io-clustal");
         var m = new msa({
-            el: this.$el,
+          el:this.$el.append("<div>", {id:"seqDiv"}),
         });
-        clustal.read(this.model.get("value"), function(err, seqs){
+        clustal.read(this.model.get("parse_url"), function(err, seqs){
           m.seqs.reset(seqs);
           m.render();
         });
       },
     });
+    /*
+      View for MsaParseClustal widget. Parses a local clustal file and displays
+      it using msa.
+    */
+    var MsaParseClustalView = widget.DOMWidgetView.extend({
+      render: function(){
+        var seq_list = this.model.get('seq_list');
+        var m = new msa({
+          el:this.$el.append("<div>", {id:"seqDiv"}),
+          seqs: seq_list,
+        });
+        m.render();
+      },
 
-    manager.WidgetManager.register_widget_view('SimpleView', SimpleView);
-    return { "SimpleView" : SimpleView,
+    });
+
+    manager.WidgetManager.register_widget_view('MsaParseUrlView', MsaParseUrlView);
+    manager.WidgetManager.register_widget_view('MsaParseClustalView', MsaParseClustalView);
+    return { "MsaParseUrlView" : MsaParseUrlView, "MsaParseClustalView" : MsaParseClustalView,
       load_ipython_extension: function(){
           console.log("I have been loaded ! -- my nb extension");
       }

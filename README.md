@@ -20,6 +20,3 @@ python setup.py develop
 ```
 
 # Usage
-The functionality is very limited right now. Here is an [example notebook](https://github.com/zsameem/biojup/blob/master/biojup/examples/from_url.ipynb).
- . This notebook parses a clustal file from a url and displays it in
-[biojs msa viewer](https://github.com/greenify/msa).
